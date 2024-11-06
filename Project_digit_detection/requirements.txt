@@ -1,0 +1,9 @@
+#To download the specified versions, use:
+# pip install -r requirements.txt
+
+# To download the specified versions, use:
+# pip install -r requirements.txt
+
+tensorflow==2.17.0  	# TensorFlow Version
+numpy==1.26.1        	# NumPy Version
+matplotlib==3.8.0		# Matplotlib Version
