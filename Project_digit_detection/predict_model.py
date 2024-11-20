@@ -1,5 +1,6 @@
 import numpy as np
 import tensorflow as tf
+import os
 from tensorflow.keras.models import load_model
 from tensorflow.keras.datasets import mnist
 import matplotlib.pyplot as plt
@@ -49,17 +50,8 @@ model = load_model('digit_classifier.keras')
 #         plt.show()
 
 
-import os
-import numpy as np
-import tensorflow as tf
-from tensorflow.keras.models import load_model
-from tensorflow.keras.datasets import mnist
-import matplotlib.pyplot as plt
-from PIL import Image, ImageOps
-
-
 # Load the saved model in .keras format
-model = load_model('digit_classifier.keras')
+# model = load_model('digit_classifier.keras')
 
 # Preprocess function for a single custom image
 def preprocess_custom_image(image_path):
@@ -69,8 +61,9 @@ def preprocess_custom_image(image_path):
         gray_img = original_img.convert('L')  # Convert to grayscale
 
         # Invert the image to ensure black background and white text
-        inverted_img = ImageOps.invert(gray_img)
-        binary_img = inverted_img.point(lambda p: 255 if p > 90 else 0)  # Thresholding
+        # Uncomment the following line if image has black digit and a light background
+        # inverted_img = ImageOps.invert(gray_img)
+        binary_img = inverted_img.point(lambda p: 255 if p > 128 else 0)  # Thresholding
 
         # Resize the image to 28x28 (MNIST format)
         resized_img = binary_img.resize((28, 28))
@@ -135,8 +128,8 @@ def predict_images_in_directory(directory_path):
 # Main function to predict multiple images in a directory
 if __name__ == "__main__":
     # Directory containing the images
-    # image_directory = "./data"
-    
+    # image_directory = "./data_collected" # and uncomment line 65
+    image_directory = "mnist_images"
     # Predict all images in the directory
     predict_images_in_directory(image_directory)
 
@@ -144,4 +137,3 @@ if __name__ == "__main__":
 #predict_digit(1)
 
 #display_incorrect_predictions();
-
