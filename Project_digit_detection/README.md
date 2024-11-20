@@ -13,22 +13,25 @@ This project use convolutional neural network to classify handwritten digits fro
 After training the model for 5 epochs on the MNIST dataset, here are the key statistics:
 
 - **Epochs:** 5
-- **Training Accuracy (Final):** 99.40% (0.9940)
-- **Training Loss (Final):** 0.0182
-- **Validation Accuracy (Final):** 98.82% (0.9882)
-- **Validation Loss (Final):** 0.0406
+- **Training Accuracy (Final):** 0.9811
+- **Training Loss (Final):** 0.059
 
 ### Validation Dataset
 
 - **Number of Validation Samples:** 12,000 (20% of the training data was used for validation).
-- **Validation Accuracy:** 98.82%
-- **Validation Loss:** 0.0406
+- **Validation Accuracy:** 0.9908
+- **Validation Loss:** 0.0296
 
 These metrics indicate that the model has achieved a high level of accuracy on both the training and validation datasets. The low training and validation loss suggests that the model has learned well without overfitting significantly.
 
 
 ## Dataset
 The model is trained on the MNIST dataset, which contains 60,000 training images and 10,000 test images of handwritten digits (0-9).
+## Data augmentation 
+- **Rotation range:** 20 (degrees)
+- **Zoom range:** 10% (zoom in or zoom out)
+- **Shift horizontal:** 10%
+- **Shift vertical:** 10%
 
 ## Dependencies
 
