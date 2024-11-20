@@ -9,7 +9,7 @@ from PIL import Image, ImageOps
 
 # Load the saved model in .keras format
 model = load_model('digit_classifier.keras')
-
+# Uncomment following code block if you want to test with mnist dataset
 # Load and preprocess the MNIST dataset
 # (_, _), (x_test, y_test) = mnist.load_data()
 # x_test = x_test / 255.0
@@ -62,8 +62,8 @@ def preprocess_custom_image(image_path):
 
         # Invert the image to ensure black background and white text
         # Uncomment the following line if image has black digit and a light background
-        # inverted_img = ImageOps.invert(gray_img)
-        binary_img = inverted_img.point(lambda p: 255 if p > 128 else 0)  # Thresholding
+        # gray_img = ImageOps.invert(gray_img)
+        binary_img = gray_img.point(lambda p: 255 if p > 128 else 0)  # Thresholding
 
         # Resize the image to 28x28 (MNIST format)
         resized_img = binary_img.resize((28, 28))
