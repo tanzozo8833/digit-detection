@@ -23,8 +23,8 @@ y_test = to_categorical(y_test, 10)
 
 # Data augmentation
 datagen = ImageDataGenerator(
-    rotation_range=45,  
-    zoom_range=0.2,     
+    rotation_range=20,  
+    zoom_range=0.1,     
     width_shift_range=0.2,  
     height_shift_range=0.2  
 )
